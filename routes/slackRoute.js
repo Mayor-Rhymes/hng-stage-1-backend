@@ -5,7 +5,11 @@ const route = express.Router();
 const { getDayOfWeek } = require("../lib/calendar");
 
 route.get("/", (req, res) => {
-  if (req.query.slack_name.length > 0 && req.query.track.length > 0) {
+  if (
+    Object.keys(req.query).length > 0 &&
+    "slack_name" in req.query &&
+    "track" in req.query
+  ) {
     res.status(200).json({
       slack_name: req.query.slack_name,
       current_day: getDayOfWeek(),
@@ -16,10 +20,13 @@ route.get("/", (req, res) => {
       status_code: 200,
     });
   } else {
-    res.json({
-      message: "hello",
+    res.status(404).json({
+      message:
+        "Please make sure to enter expected queries like so: http://example.com/api?slack_name=example_name&track=backend",
     });
   }
 });
 
 module.exports = route;
+
+// req.query.hasOwnProperty(slack_name) && req.query.hasOwnProperty(track)
