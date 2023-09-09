@@ -15,8 +15,8 @@ route.get("/", (req, res) => {
       current_day: getDayOfWeek(),
       utc_time: new Date(),
       track: req.query.track,
-      github_file_url: "hello",
-      github_repo_url: "hello",
+      github_file_url: "https://github.com/Mayor-Rhymes/hng-stage-1-backend/blob/main/server.js",
+      github_repo_url: "https://github.com/Mayor-Rhymes/hng-stage-1-backend",
       status_code: 200,
     });
   } else {
