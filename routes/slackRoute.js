@@ -13,7 +13,7 @@ route.get("/", (req, res) => {
     res.status(200).json({
       slack_name: req.query.slack_name,
       current_day: getDayOfWeek(),
-      utc_time: new Date(),
+      utc_time: new Date().toISOString(),
       track: req.query.track,
       github_file_url: "https://github.com/Mayor-Rhymes/hng-stage-1-backend/blob/main/server.js",
       github_repo_url: "https://github.com/Mayor-Rhymes/hng-stage-1-backend",
