@@ -29,4 +29,4 @@ route.get("/", (req, res) => {
 
 module.exports = route;
 
-// req.query.hasOwnProperty(slack_name) && req.query.hasOwnProperty(track)
+
